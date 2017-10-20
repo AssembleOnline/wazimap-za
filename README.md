@@ -42,6 +42,17 @@ Start the server:
 python manage.py runserver
 ```
 
+# Alternate Docker Local development
+
+1. clonse the repo
+2. cd wazimap_za
+3. ``./docker.sh base`` to build the base docker wazimap_za environment
+4. OPTIONAL: Configure `WAZI_PROFILE` environment variable to the instance you are working on in Dockerfile, e.g. `ENV WAZI_PROFILE ecd`
+5. OPTIONAL: Configure `DEFAULT_GEO_VERSION` environment variable if you don't want to default to the latest, e.g. for youth and ecd `ENV DEFAULT_GEO_VERSION 2011`
+6. ``./docker.sh db`` to start up a postgres container for the instance to use. ( OPTIONAL: Configure Dockerfile `ENV DATABASE_URL` & `ENV PGPASSWORD` with alternate access details)
+7. ``./docker.sh build`` to build the main instance from the base image
+8. ``./docker.sh run`` to run the container from the image, NOTE: the directory gets mounted on run. ( OPTIONAL: ``./docker.sh run headless`` to push to background )
+
 # Production deployment
 
 See the [Wazimap deployment docs](http://wazimap.readthedocs.org/en/latest/deploying.html) for all basic Wazimap configuration.
