@@ -17,6 +17,9 @@ elif [ $1 = "run" ] ; then
         docker run -it --rm -v $PWD:/app --name "$NAME_app" -p 80:80 "$NAME"
     fi
 
+elif [ $1 = "compile" ] ; then
+    docker exec -it "$NAME_app" bash -c 'cd /app'
+
 # If in BG can SSH into container
 elif [ $1 = "ssh" ] ; then
     docker exec -it "$NAME_app" bash
