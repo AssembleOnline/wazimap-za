@@ -34,6 +34,8 @@ RUN python manage.py migrate
 # IMPORT Remaining Data pre migrations
 RUN cat sql/*.sql | psql -h 172.17.0.2 -U wazimap -w wazimap
 
+RUN cat fix_scripts/add_ai_ids.sql | psql -h 172.17.0.2 -U wazimap -w wazimap
+
 #ENV for ECD
 ENV WAZI_PROFILE ecd
 ENV DEFAULT_GEO_VERSION 2011
@@ -44,4 +46,4 @@ ENV DEFAULT_GEO_VERSION 2011
 EXPOSE 80
 
 # Run app.py when the container launches
-CMD python manage.py compilescss && python manage.py collectstatic --noinput && rm -rf /var/tmp/wazimap_cache && python manage.py runserver 0.0.0.0:80
+CMD rm -rf ./static && python manage.py compilescss && python manage.py collectstatic --noinput && rm -rf /var/tmp/wazimap_cache && python manage.py runserver 0.0.0.0:80

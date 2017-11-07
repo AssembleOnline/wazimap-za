@@ -22,7 +22,7 @@ elif [ $1 = "compile" ] ; then
 
 # If in BG can SSH into container
 elif [ $1 = "ssh" ] ; then
-    docker exec -it "$NAME_app" bash
+    docker exec -it "$NAME_app" /bin/sh
 
 # Stop / Start Container
 elif [ $1 = "stop" ] ; then

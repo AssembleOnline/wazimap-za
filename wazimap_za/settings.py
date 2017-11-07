@@ -3,7 +3,23 @@ from collections import OrderedDict
 from wazimap.settings import *  # noqa
 
 # install this app before Wazimap
-INSTALLED_APPS = ['test_without_migrations', 'wazimap_za.apps.WazimapConfig'] + INSTALLED_APPS
+INSTALLED_APPS = ['test_without_migrations', 'wazimap_za.apps.WazimapConfig', 
+    'django.contrib.admin', 
+    'django.contrib.auth',
+    'django.contrib.messages' , 
+    'django.contrib.sessions'
+    ] + INSTALLED_APPS
+
+#remove admin sites
+INSTALLED_APPS.remove('django.contrib.sites')
+
+TEMPLATE_CONTEXT_PROCESSORS = ['django.contrib.auth.context_processors.auth', 'django.contrib.messages.context_processors.messages'] + list(TEMPLATE_CONTEXT_PROCESSORS)
+
+MIDDLEWARE_CLASSES = ['django.contrib.sessions.middleware.SessionMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.contrib.messages.middleware.MessageMiddleware'] + list(MIDDLEWARE_CLASSES)
+
+
+ROOT_URLCONF = 'wazimap_za.urls'
+
 
 DATABASE_URL = os.environ.get('DATABASE_URL', 'postgresql://wazimap_za:wazimap_za@localhost/wazimap_za')
 DATABASES['default'] = dj_database_url.parse(DATABASE_URL)
@@ -18,7 +34,7 @@ STRIP_WWW = True
 
 # Localise this instance of Wazimap
 WAZIMAP['name'] = 'Wazimap'
-WAZIMAP['url'] = 'https://wazimap.co.za'
+WAZIMAP['url'] = os.environ.get('WAZIMAP_ZA_URL', 'https://wazimap.co.za')
 WAZIMAP['country_code'] = 'ZA'
 WAZIMAP['comparative_levels'] = ['district', 'province', 'country']
 # this is provided by mapit
