@@ -1,38 +1,24 @@
 from django.contrib import admin
 from .models import *
-from wazimap.models import Geography
-
-
-class GeographyYouthAdmin(admin.ModelAdmin):
-    pass
-
-
-class GeographyAdmin(admin.ModelAdmin):
-    pass
-
-
-# class Schools2015Admin(admin.ModelAdmin):
-#     search_fields = ( 'geo_level', 'geo_code', 'geo_version' )
-#     list_filter = ['geo_version']
-
-admin.site.register(GeographyYouth, GeographyYouthAdmin)
-admin.site.register(Geography, GeographyAdmin)
 
 
 class WazimapGeographyAdmin(admin.ModelAdmin):
-    pass
+    search_fields = [ 'geo_level', 'geo_code', 'name' ]
+    list_filter = [ 'version' ]
 
 admin.site.register(WazimapGeography, WazimapGeographyAdmin)
 
 
 class WazimapGeographyYouthAdmin(admin.ModelAdmin):
-    pass
+    search_fields = [ 'geo_level', 'geo_code', 'name' ]
+    list_filter = [ 'version' ]
 
 admin.site.register(WazimapGeographyYouth, WazimapGeographyYouthAdmin)
 
 
 class PolicedistrictAdmin(admin.ModelAdmin):
-    pass
+    search_fields = [ 'code', 'name', 'province_code' ]
+    list_filter = [ 'year' ]
 
 admin.site.register(Policedistrict, PolicedistrictAdmin)
 

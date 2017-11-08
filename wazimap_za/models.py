@@ -23,9 +23,11 @@ class WazimapGeography(models.Model):
     class Meta:
         managed=False
         db_table = "wazimap_geography"
+        verbose_name = 'Wazimap Geography'
+        verbose_name_plural = 'Wazimap Geography'
 
     def __unicode__(self):
-        return self.id
+        return self.geo_level + ' ' + self.geo_code + ' ' + self.version + ' ' + self.name
 
 
 class WazimapGeographyYouth(models.Model):
@@ -43,9 +45,11 @@ class WazimapGeographyYouth(models.Model):
     class Meta:
         managed=False
         db_table = "wazimap_geography_youth"
+        verbose_name = 'Wazimap Geography Youth'
+        verbose_name_plural = 'Wazimap Geography Youth'
 
     def __unicode__(self):
-        return self.id
+        return self.geo_level + ' ' + self.geo_code + ' ' + self.version + ' ' + self.name
 
 
 class Policedistrict(models.Model):
@@ -58,9 +62,11 @@ class Policedistrict(models.Model):
     class Meta:
         managed=False
         db_table = "policedistrict"
+        verbose_name = 'Police District'
+        verbose_name_plural = 'Police District'
 
     def __unicode__(self):
-        return self.code
+        return self.code + ' ' + self.name + ' ' + self.province_code + ' ' + self.year 
 
 
 class Accesstointernet(models.Model):
@@ -74,6 +80,8 @@ class Accesstointernet(models.Model):
         managed=False
         db_table = "accesstointernet"
         unique_together = ('geo_level', 'geo_code', 'geo_version')
+        verbose_name = 'Access To Internet'
+        verbose_name_plural = 'Access To Internet'
 
     def __unicode__(self):
         return self.geo_level + " " + self.geo_code + " " + self.geo_version
@@ -90,6 +98,8 @@ class Agegroupsin5years(models.Model):
         managed=False
         db_table = "agegroupsin5years"
         unique_together = ('geo_level', 'geo_code', 'geo_version')
+        verbose_name = 'Age Groups In 5 Years'
+        verbose_name_plural = 'Age Groups In 5 Years'
 
     def __unicode__(self):
         return self.geo_level + " " + self.geo_code + " " + self.geo_version
@@ -107,9 +117,11 @@ class Agegroupsin5yearsGender(models.Model):
         managed=False
         db_table = "agegroupsin5years_gender"
         unique_together = ('geo_level', 'geo_code', 'gender', 'geo_version')
+        verbose_name = 'Age Groups In 5 Years Gender'
+        verbose_name_plural = 'Age Groups In 5 Years Gender'
 
     def __unicode__(self):
-        return self.geo_level + " " + self.geo_code + " " + self.gender + " " + self.geo_version
+        return self.geo_level + " " + self.geo_code + " " + self.gender + " " + self.age_groups_in_5_years + " " + self.geo_version
 
 
 class Ageincompletedyears(models.Model):
@@ -123,9 +135,11 @@ class Ageincompletedyears(models.Model):
         managed=False
         db_table = "ageincompletedyears"
         unique_together = ('geo_level', 'geo_code', 'geo_version')
+        verbose_name = 'Age In Completed Years'
+        verbose_name_plural = 'Age In Completed Years'
 
     def __unicode__(self):
-        return self.geo_level + " " + self.geo_code + " " + self.geo_version
+        return self.geo_level + " " + self.geo_code + " " + self.age_in_completed_years + " " + self.geo_version
 
 
 class AgeincompletedyearsPresentschoolattendance(models.Model):
@@ -140,9 +154,11 @@ class AgeincompletedyearsPresentschoolattendance(models.Model):
         managed=False
         db_table = "ageincompletedyears_presentschoolattendance"
         unique_together = ('geo_level', 'geo_code', 'geo_version')
+        verbose_name = 'Age In Completed Years Present School Attendance'
+        verbose_name_plural = 'Age In Completed Years Present School Attendance'
 
     def __unicode__(self):
-        return self.geo_level + " " + self.geo_code + " " + self.geo_version
+        return self.geo_level + " " + self.geo_code + " " + self.age_in_completed_years + " " + self.geo_version
 
 
 class Ageincompletedyearssimplified(models.Model):
@@ -156,9 +172,11 @@ class Ageincompletedyearssimplified(models.Model):
         managed=False
         db_table = "ageincompletedyearssimplified"
         unique_together = ('geo_level', 'geo_code', 'geo_version')
+        verbose_name = 'Age In Completed Years Simplified'
+        verbose_name_plural = 'Age In Completed Years Simplified'
 
     def __unicode__(self):
-        return self.geo_level + " " + self.geo_code + " " + self.geo_version
+        return self.geo_level + " " + self.geo_code + " " + self.age_in_completed_years + " " + self.geo_version
 
 
 class AgeofhouseholdheadGenderofhouseholdhead(models.Model):
@@ -173,9 +191,11 @@ class AgeofhouseholdheadGenderofhouseholdhead(models.Model):
         managed=False
         db_table = "ageofhouseholdhead_genderofhouseholdhead"
         unique_together = ('geo_level', 'geo_code', 'geo_version')
+        verbose_name = 'Age Of Household Head Gender Of Household Head'
+        verbose_name_plural = 'Age Of Household Head Gender Of Household Head'
 
     def __unicode__(self):
-        return self.geo_level + " " + self.geo_code + " " + self.geo_version
+        return self.geo_level + " " + self.geo_code + " " + self.gender_of_household_head + " " + self.age_of_household_head + " " + self.geo_version
 
 
 class AnnualhouseholdincomeGenderofhouseholdhead(models.Model):
