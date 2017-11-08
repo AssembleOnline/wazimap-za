@@ -7,7 +7,8 @@ INSTALLED_APPS = ['test_without_migrations', 'wazimap_za.apps.WazimapConfig',
     'django.contrib.admin', 
     'django.contrib.auth',
     'django.contrib.messages' , 
-    'django.contrib.sessions'
+    'django.contrib.sessions',
+    'import_export'
     ] + INSTALLED_APPS
 
 #remove admin sites

@@ -7,3 +7,4 @@ newrelic==2.40.0.34
 wazimap[gdal]==1.0.1
 GDAL==1.11.0
 Shapely>=1.5.13
+django-import-export==0.5.1

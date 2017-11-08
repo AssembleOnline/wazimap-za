@@ -25,4 +25,4 @@ ENV CPLUS_INCLUDE_PATH /usr/include/gdal
 ENV C_INCLUDE_PATH /usr/include/gdal
 
 # Install any needed packages specified in requirements.txt
-RUN pip install -r requirements.txt
+#RUN pip install -r requirements.txt

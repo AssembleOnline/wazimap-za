@@ -4,6 +4,9 @@ FROM wazi
 WORKDIR /app
 ADD . /app
 
+# Install any needed packages specified in requirements.txt
+RUN pip install -r requirements.txt
+
 # Define environment variable
 ENV DATABASE_URL postgresql://wazimap:wazimap@172.17.0.2/wazimap
 ENV PGPASSWORD wazimap
