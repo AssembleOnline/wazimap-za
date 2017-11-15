@@ -49,4 +49,4 @@ ENV DEFAULT_GEO_VERSION 2011
 EXPOSE 80
 
 # Run app.py when the container launches
-#CMD rm -rf ./static && python manage.py compilescss && python manage.py collectstatic --noinput && rm -rf /var/tmp/wazimap_cache && python manage.py runserver 0.0.0.0:80
+CMD rm -rf ./static && python manage.py compilescss && python manage.py collectstatic --noinput && rm -rf /var/tmp/wazimap_cache && python manage.py runserver 0.0.0.0:80
